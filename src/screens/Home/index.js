@@ -1,13 +1,19 @@
-import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import PrimeVideoLogo from "../../assets/prime_video.png";
 import AmazonLogo from "../../assets/amazon_logo.png";
-import MovieTheWheel from "../../assets/movies/the_wheel_of_time.png";
+import MovieTheWheel from "../../assets/movies/velozesefuriosos9.png";
 import { styles } from "./style.js";
 import { MoviesCard } from "../../components/MoviesCard/index.js";
 import { MOVIESWATCHING } from "../../utils/moviesWatching.js";
-import { MOVIESCRIME } from "../../utils/moviesCrimes.js";
 import { MOVIESWATCH } from "../../utils/moviesWatch.js";
-
+import { MOVIESCRIME } from "../../utils/moviesCrimes.js";
 
 export const Home = () => {
   return (
@@ -35,34 +41,55 @@ export const Home = () => {
         </TouchableOpacity>
       </View>
 
+      <Text style={styles.movieText}>Acabaram de chegar</Text>
+
       <ScrollView>
+        <TouchableOpacity style={styles.movieImageThumbnail}>
+          <Image source={MovieTheWheel}></Image>
+        </TouchableOpacity>
+
+        <Text style={styles.movieText}>Continue assistindo...</Text>
+
         
+        <FlatList
+          data={MOVIESWATCHING}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <MoviesCard movieURL={item.moviesURL}></MoviesCard>
+          )}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.contentList}
+        />
+        
+        <Text style={styles.movieText}>Filmes sobre crime</Text>
 
-      <TouchableOpacity style={styles.movieImageThumbnail}>
-        <Image source={MovieTheWheel}></Image>
-      </TouchableOpacity>
-
-      <Text style={styles.movieText}>Continue assistindo...</Text>
-      
-      <FlatList 
-        data={MOVIESWATCHING} 
-        keyExtractor={(item) => item.id}
-        renderItem={({item}) => <MoviesCard movieURL={item.moviesURL}></MoviesCard>}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.contentList}
+        <FlatList
+          data={MOVIESCRIME}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <MoviesCard movieURL={item.moviesURL}></MoviesCard>
+          )}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.contentList}
         />
 
-      <FlatList
-      data={MOVIESCRIME}
-      keyExtractor={(item) => item.id}
-      renderItem={(item) => <MoviesCard movieURL={item.moviesURL}></MoviesCard>}
-      horizontal>
-      
-        
-      </FlatList>
+        <Text style={styles.movieText}>Assista em outros idiomas</Text>
+
+        <FlatList
+          data={MOVIESWATCH}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <MoviesCard movieURL={item.moviesURL}></MoviesCard>
+          )}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.contentList}
+        />
+
+
       </ScrollView>
     </View>
   );
-
 };

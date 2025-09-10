@@ -15,17 +15,17 @@ export const MOVIESWATCH = [
     moviesURL: require("../assets/movies/English.png"),
   },
   {
-    id: "1",
+    id: "4",
     name: "English",
     moviesURL: require("../assets/movies/English.png"),
   },
   {
-    id: "2",
+    id: "5",
     name: "Hindi",
     moviesURL: require("../assets/movies/Hindi.png"),
   },
   {
-    id: "3",
+    id: "6",
     name: "Telugu",
     moviesURL: require("../assets/movies/English.png"),
   },
