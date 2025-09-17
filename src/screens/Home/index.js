@@ -7,16 +7,18 @@ import {
   View,
 } from "react-native";
 import PrimeVideoLogo from "../../assets/prime_video.png";
-import AmazonLogo from "../../assets/amazon_logo.png";
 import MovieTheWheel from "../../assets/movies/velozesefuriosos9.png";
 import { styles } from "./style.js";
 import { MoviesCard } from "../../components/MoviesCard/index.js";
 import { MOVIESWATCHING } from "../../utils/moviesWatching.js";
 import { MOVIESWATCH } from "../../utils/moviesWatch.js";
 import { MOVIESCRIME } from "../../utils/moviesCrimes.js";
+import AmazonLogo from "../../assets/amazon_logo.png";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export const Home = () => {
   return (
+
     <View style={styles.container}>
       <View style={styles.header}>
         <Image source={PrimeVideoLogo} style={styles.primeLogoImg}></Image>
@@ -88,8 +90,28 @@ export const Home = () => {
           style={styles.contentList}
         />
 
+          {/*
+          Nome: Giovanni Teixeira e Silva
+          RA: 24271861 
+          Data: 17/09/2025*/}
 
       </ScrollView>
+      <View style={styles.footer}>
+        <TouchableOpacity style={styles.button}>
+          <Icon name="home-outline" size={25} color={"#fff"}></Icon>
+          <Text style={styles.label}>Início</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.button}>
+          <Icon name="arrow-down-outline" size={25} color={"#fff"}></Icon>
+          <Text style={styles.label}>Downloads</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.button}>
+          <Icon name="settings-outline" size={25} color={"#fff"}></Icon>
+          <Text style={styles.label}>Conigurações</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

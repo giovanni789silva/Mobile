@@ -36,14 +36,36 @@ export const styles = StyleSheet.create({
         width: "100%",
         alignItems: "center",
     },
+    
     contentList:{
         paddingLeft: 18,
         paddingTop: 10, 
     },
+    
     movieText: {
         fontSize: 18,
         color: "#fff",
         fontWeight: "700",
         padding: 15,
+    },
+
+    footer: {
+        width: "100%",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignItems: "center",
+        paddingVertical: 10,
+        backgroundColor: "#3a4c61ff",
+        marginTop: 10,
+    },
+
+    label: {
+        color: "#fff",
+        fontSize: 12,
+    },
+
+    button: {
+        justifyContent: "center",
+        alignItems: "center",
     }
 });
